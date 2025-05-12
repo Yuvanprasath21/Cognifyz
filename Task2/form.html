@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="icon" href="D:\Intern1\Level1\Task1\blogger.png">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Optional: To give a background color */
+        }
+        .form-container {
+            border: 10px solid purple;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            margin: auto;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["fname"].value;
+            var ph = document.forms["myForm"]["phno"].value;
+            var gender = document.forms["myForm"]["gender"].value;
+            var mai = document.forms["myForm"]["mail"].value;
+            var e = document.getElementById("course");
+            var d = document.getElementById("dep");
+            if (x == "") {
+                alert("Name must be filled out");
+                document.forms["myForm"]["fname"].focus();
+                return false;
+            } else if (gender == "") {
+                alert("Select Gender");
+                return false;
+            } else if (ph == "") {
+                alert("Phone no must be filled out");
+                document.forms["myForm"]["phno"].focus();
+                return false;
+            } else if (mai == "") {
+                alert("Enter mail");
+                document.forms["myForm"]["mail"].focus();
+                return false;
+            } else if (e.selectedIndex == 0) {
+                alert("Select Course");
+                return false;
+            } else if (d.selectedIndex == 0) {
+                alert("Select Department");
+                return false;
+            } else {
+                alert("Success");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <center>
+            <h2 style="font-family: Algerian;">Cognifyz Internship</h2>
+        </center>
+        <form name="myForm" action="success.html" onsubmit="return validateForm()" id="form1" method="post">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="fname"></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" value="male" /> Male
+                        <input type="radio" name="gender" value="Female" /> Female
+                        <input type="radio" name="gender" value="others" /> others
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone no:</td>
+                    <td><input type="number" name="phno"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="mail"></td>
+                </tr>
+                <tr>
+                    <td>Course:</td>
+                    <td>
+                        <select name="s1" id="course">
+                            <option value="">Select Course</option>
+                            <option value="C">Web Development</option>
+                            <option value="C++">Artificial Intelligence</option>
+                            <option value="Java">IoT</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Department:</td>
+                    <td>
+                        <select name="d1" id="dep">
+                            <option value="">Select Department</option>
+                            <option value="it">IT</option>
+                            <option value="cse">CSE</option>
+                            <option value="ece">ECE</option>
+                            <option value="eee">EEE</option>
+                            <option value="mech">MECH</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" value="Submit" style="background-color:#5356FF; width: 80px; height: 35px; font-size: 20px; cursor: pointer;">
+                        <input type="reset" value="Reset" style="background-color:#5356FF; width: 80px; height: 35px; font-size: 20px; cursor: pointer;">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
